@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>week5-2</title>
+	<style type="text/css">
+		     /*(Cascading effect)*/
+		/*body{font-family: "comic sans ms"}*/
+		/*p{color: skyblue;font-size: 2em;}*/ /*(skyblue, 2em)*/
+		/*u{background-color: darkmagenta;font-family: cambria;}*/ /*(font overtake by cambria)*/
+		/*p{font-style: italic;}*/ /*(skyblue, 2em, italic)*/
+		/*p{line-height: 2em; color: red;}*/ /*(red, 2em, italic, 2em)*/   /*(it will overtake the old one with the new one e.g skyblue to red)*/
+
+
+		/*.red{color: red;}*/ /*(if dua p dalam div)*/
+		/*p{color: red;}*/ /*(if semua p)*/
+		/*div p{color: red}*/ /*(descendant selector, using space =first 3 P is red.  child selector, using > =first 2 P is red )*/
+		/*div>p{color: red} */
+		/*div>h2{color: red}
+		span>p{color: red}*/ /*(instead of using this, use the one below)*/
+		/*div>h2, span>p {color: red}*/
+		/*.red {color: red}*/  /*(other than above< use class)*/
+
+
+		/*.red{color: red}*/
+		/*div>p{color: red}*/
+		/*div+p{color: red}*/  /*(adjacent sibling using +)*/
+		/*div~p{color: red}*/ /*(general sibling using ~)*/
+	/*	#fd>p{color: red}*/
+	div>div>p{color: red}
+
+
+	</style>
+</head>
+<body>
+<!-- <h1>This is H1</h1>
+<p>I am a paragraph</p>
+<p>another paragraph</p>
+<u>Im underline</u>
+<p>yet another P</p> -->
+
+
+
+<!-- <div>
+	<h2 class="red">I am H2</h2>
+	<h3>I am H3</h3>
+	<h3>yet another h3</h3> -->
+<!-- 	<p class="red">Im a P in a div</p>
+	<p class="red">Im also P in a div</p> -->
+	<!-- <p>Im a P in a div</p>
+	<p>Im also a P in a div</p>
+	<span> -->
+	<!-- 	<p class="red">I am a child of span</p> -->
+<!-- 	<p class="red">I am a child of span</p>
+	</span>
+</div>
+<p>Im outside div</p>
+<h2>Im h2 outside div</h2> -->
+
+
+
+       <!-- <div id="fd"> -->
+       	<div>
+		 	<p>Im the first child of 1st div</p>
+		 	<p>Im the second child of 1st div</p>
+		 	<div> <p>1.1</p> </div>
+		</div>
+<!-- 		<p class="red">I am the next sibling just after 1st div</p> -->
+		<p>I am the next sibling just after 1st div</p>
+		<p>I am the second sibling just after 1st div</p>
+		<div>
+		 	<p>I am the first child of the 2nd div</p>
+		</div>
+<!-- 		<p class="red">Iam the next sibling after the 2nd div</p> -->
+		<p>Iam the next sibling after the 2nd div</p>
+		<p>I am the second sibling just after 2nd div</p>
+		<p>I am the thirsd sibling just after 2nd div</p>
+
+</html>
