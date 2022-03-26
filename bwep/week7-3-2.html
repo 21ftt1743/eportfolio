@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>week7-3-2</title>
+	<style type="text/css">
+
+		#container{display: grid;
+			height: 100vh;
+			grid-template-columns: 200px 1fr 1fr 200px;
+			grid-template-rows: auto 1fr auto;
+			background-color: skyblue;
+			padding: 10px;
+			grid-gap: 5px 5px;
+			grid-template-areas: 
+			'header     header header header'
+			'nav        content content aside'
+			'footer     footer footer footer'
+		}
+
+		#container>div{background-color: turquoise;
+			padding: 10px; border: 1px solid;}
+
+	#container>div:nth-child(1){grid-area: header;}
+	#container>div:nth-child(2){grid-area: nav;}
+	#container>div:nth-child(3){grid-area: content;}	
+	#container>div:nth-child(4){grid-area: aside;}	
+	#container>div:nth-child(5){grid-area: footer;}	
+
+	@media only/*(for old browser) */screen and (max-width: 600px){
+		#container{
+			display: grid;
+			grid-template-columns: 100%;
+			grid-template-rows: 5em auto 5em 5em; /*(em= times the font size)*/
+			grid-template-areas: 
+			'header'
+			'nav'
+			'contents'
+			'nav'
+			'footer';
+
+		}
+		#container>div:nth-child(4){/*display: none*/}	
+	}
+</style>
+</head>
+<body>
+<div id="container">
+	<div>header</div>
+	<div>nav</div>
+	<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+	<div>aside</div>
+	<div>footer</div>
+</div>
+
+</body>
+</html>
