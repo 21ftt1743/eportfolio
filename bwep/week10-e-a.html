@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>wk10-e-a</title>
+  <style>
+    #container{display: grid; width: 70%;margin: 0 auto;grid-template-columns:2fr 2fr 2fr 1fr ;grid-auto-rows: 3em;}
+   
+    /*no additional css is required*/
+
+
+  </style>
+</head>
+<!-- do not insert additional id attributes to any element -->
+<!-- do not remove any inline styles -->
+<body>
+  <form id="myform" action="" onsubmit="return false">
+  <div id="container">
+<h3 style="grid-column: 1/span 4">College Admission Calculator</h3>
+<div style="grid-column: 1/span 4;">Please enter the required information</div>
+<div>Are you over 25?</div>
+<div>
+<select name="" id="adult">
+  <option value="0">select</option>
+  <option value="under25">Under 25</option>
+  <option value="over25">Over 25</option>
+</select>
+</div>
+<div style="grid-column:auto/span 2"></div>
+
+
+<div></div><div>subject/exam</div><div>subject grades</div><div>points</div>
+
+  <div class="hideall matured">English Language or Equivalent</div>
+  <div class="hideall matured" onchange="english()">
+    <input type="radio" name="english">GCE O Level
+    <input type="radio" name="english">IGCE O level
+    <input type="radio" name="english">IELTS
+</div>
+<div class="hideall matured">
+    <select name="engolevel" id="engolevel" onchange="point()">
+    <option value="0">select</option>
+      <option value="A1">A1</option>
+      <option value="A2">A2</option>
+      <option value="B3">B3</option>
+      <option value="B4">B4</option>
+      <option value="C5">C5</option>
+      <option value="C6">C6</option>
+      <option value="F">F</option>
+    </select>
+     <select name="engigcse" id="engigcse">
+    <option value="0">select</option>
+      <option value="A*">A*</option>
+      <option value="A">A</option>
+      <option value="B">B</option>
+      <option value="C">C</option>
+      <option value="D">D</option>
+      <option value="E">E</option>
+      <option value="F">F</option>
+    </select>
+        <select name="engielts" id="engielts">
+      <option value="0">select</option>
+    <option value="9.0">9.0</option>
+      <option value="8.5">8.5</option>
+      <option value="8.0">8.0</option>
+      <option value="7.5">7.5</option>
+      <option value="7.0">7.0</option>
+      <option value="6.5">6.5</option>
+      <option value="6.0">6.0</option>
+    </select>
+</div>
+<div class="hideall matured" id="engpoints"></div>
+
+
+  <div class="hideall matured">Mathematics</div>
+  <div class="hideall matured">
+    <select name="maths" id="maths">
+      <option value="0">select</option>
+      <option value="mathematics D">mathematics D</option>
+      <option value="additional mathematics">additional mathematics</option>
+  </select>
+</div>
+
+<div class="hideall matured">
+    <select name="mathsgrade" id="mathsgrade">
+      <option value="0">select</option>
+      <option value="A1">A1</option>
+      <option value="A2">A2</option>
+      <option value="B3">B3</option>
+      <option value="B4">B4</option>
+      <option value="C5">C5</option>
+      <option value="C6">C6</option>
+      <option value="F">F</option>
+    </select>
+</div>
+
+<div class="hideall matured" id="mathspoints"></div>
+
+<div class="hideall">Relevant subject #1</div>
+<div class="hideall">
+    <select name="relevant1" id="relevant1">
+      <option value="0">select</option>
+      <option value="computer studies">computer studies</option>
+      <option value="computer sciences">computer sciences</option>
+      <option value="mathematics D">mathematics D</option>
+      <option value="additional mathematics">additional mathematics</option>
+    </select>
+</div>
+
+<div class="hideall">
+    <select name="relevant1grade" id="relevant1grade">
+      <option value="0">select</option>
+      <option value="A1">A1</option>
+      <option value="A2">A2</option>
+      <option value="B3">B3</option>
+      <option value="B4">B4</option>
+      <option value="C5">C5</option>
+      <option value="C6">C6</option>
+        <option value="F">F</option>
+    </select>
+</div>
+
+<div class="hideall" id="relevant1points"></div>
+
+<div class="hideall matured"><button id="btnresult" style="align-self: center;">Click to show eligibility status</button></div><div class="hideall matured" style="grid-column:2/span 2" id="status"></div>
+<div class="hideall matured" id="totalpoints"></div>
+<div style="grid-column:1/span 3"></div><div><button>reset form</button></div>
+
+</div>
+</form>
+<script> 
+ //write all the required functions here
+ //indentation is important
+ //also neatness
+
+ //repitition is not in the syllabus. but students may use loop since  they learnt this concept in ITP
+//  you are expected to use since covered in the classes:
+// function with parameters
+// getElementsByName
+// getElementsById
+
+// additionally
+// getElementsByClassName
+
+//part 1 & part 2:
+
+  document.getElementById("maths").disabled = true;
+  document.getElementById("mathsgrade").disabled = true;
+  document.getElementById("relevant1").disabled = true;
+  document.getElementById("relevant1grade").disabled = true;
+  document.getElementById("btnresult").disabled = true;
+
+  document.getElementById("engolevel").style.display = "none";
+  document.getElementById("engigcse").style.display = "none";
+  document.getElementById("engielts").style.display = "none";
+
+
+
+  function english(){
+
+    var radioinput = document.getElementsByName("english");
+
+   //part 1
+
+    if (radioinput.checked) {
+      document.getElementById("maths").disabled = true;
+    } else  {
+      document.getElementById("maths").disabled = false;
+     }
+
+     if (radioinput.checked) {
+      document.getElementById("mathsgrade").disabled = true;
+    } else  {
+      document.getElementById("mathsgrade").disabled = false;
+     }
+
+     if (radioinput.checked) {
+      document.getElementById("relevant1").disabled = true;
+    } else  {
+      document.getElementById("relevant1").disabled = false;
+     }
+
+     if (radioinput.checked) {
+      document.getElementById("relevant1grade").disabled = true;
+    } else  {
+      document.getElementById("relevant1grade").disabled = false;
+     }
+
+     if (radioinput.checked) {
+      document.getElementById("btnresult").disabled = true;
+    } else  {
+      document.getElementById("btnresult").disabled = false;     
+    }
+
+    //part 2
+
+    document.getElementById("engolevel").style.display = "none";
+    document.getElementById("engigcse").style.display = "none";
+    document.getElementById("engielts").style.display = "none";
+
+    if (radioinput[0].checked){
+    document.getElementById("engolevel").style.display = "";
+   }else {
+    document.getElementById("engolevel").style.display = "none";
+   }
+
+   if (radioinput[1].checked){
+    document.getElementById("engigcse").style.display = "";
+   }else {
+    document.getElementById("engigcse").style.display = "none";
+   }
+
+   if (radioinput[2].checked){
+    document.getElementById("engielts").style.display = "";
+   }else {
+    document.getElementById("engielts").style.display = "none";
+   }
+  
+   }
+
+
+  //part 3:
+
+  function point(){
+
+    var engo = document.getElementsByName("engolevel");
+    var engp = document.getElementsById("engpoints");
+
+        
+
+
+  }
+
+  
+
+
+
+
+ 
+
+
+</script>
+</body>
+</html>
